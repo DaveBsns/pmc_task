@@ -1,0 +1,22 @@
+{
+    "animals": [
+        {
+            "id" : 1,
+            "name" : "Elefant",
+            "weight": 1000,
+            "sPower": "Lasereyes",
+            "eDate": "12.12.2022"
+        },
+        {
+            "id" : 2,
+            "name" : "Tiger",
+            "weight": 80,
+            "sPower": "booty",
+            "eDate": "10.09.2022"
+        }
+    ]
+}
+
+
+
+
