@@ -6,81 +6,80 @@ const PORT = 80;
 
 app.use(express.json()) //Middleware -> parse data into json
 
-const server = http.createServer(function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'})
-    fs.readFile('index.html', function(err, data) {
-        if(err) {
-            res.writeHead(404)
-            res.write('Error: File Not Founde')
-        } else{
-            res.write(data)
-        }
-        res.end()
-    })
-})
+
+const animal = {
+    "animal3": {
+        "id" : 2,
+        "name" : "Tiger",
+        "weight": 80,
+        "sPower": "bite",
+        "eDate": "10.09.2022"
+    }
+}
 
 
-server.listen(
+var server = app.listen(
     PORT,
-    () => console.log(`Server listen on http://localhost:${PORT}`)
-    
+    () => console.log(`Server listen on http://localhost:${PORT}`)   
 )
-/*
-fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
-    if(err) throw err;
-    //res.send(data);
-    obj = JSON.parse(data)
-    
-    //res.end(data);
-    
-})
 
 
-// get an existing entry
+
+
+
+// get an all existing entries
 app.get('/', (req, res) => {
+    fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
+        if(err) throw err;
+        //res.send(data);
+        obj = JSON.parse(data);
+        console.log(data);
+        
+        res.end(data);
+        
+    })
+    /*
     for (i=0; i<obj["animals"].length; i++){
         console.log(i)
     }
     
-    res.send(obj["animals"][0]["name"])
+    //res.send(obj["animals"][0]["name"])
+    */
     
 });
-
-
 
 // create new entry
-app.post('/:id/:name/:weight', (req, res) => {
+app.post('/addAnimal', (req, res) => {
 
-    const {id} = req.params;
-    const {name} = req.params;
-    const {weight} = req.params;
-
-    if(!id || !name || !weight){
-        res.status(418).send({ message: 'We need a logo!'})
-    }
-    fs.writeFile(__dirname + "/" + "animals.json", 'utf8', function (err, data) {
-        res.send(id);
-
-
-    })
-
-    res.send({
-        
-    })
-
-
+   fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
+    data = JSON.parse( data );
+    data["animal3"] = animal["animal3"];
+    console.log( data );
+    res.end( JSON.stringify(data));
+    });
 });
 
-// modify an entry
-app.put('/animal/:id', (req, res) => {
-    
-});
+// update entry
+app.post('/updateAnimal', (req, res) => {
+
+    fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
+     data = JSON.parse( data );
+     data["animal3"] = animal["animal3"];
+     console.log( data );
+     res.end( JSON.stringify(data));
+     });
+ });
+
 
 // delete an existing entry
-app.delete('/animal/:id', (req, res) => {
-    
+app.delete('/deleteAnimal/:id', (req, res) => {
+    const {id} = req.params
+    fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
+        data = JSON.parse( data );
+        delete data["animal" + id];
+         
+        console.log( data );
+        res.end( JSON.stringify(data));
+     });
+     
 });
-
-
-app.route('index.html')
-*/
