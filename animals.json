@@ -1,20 +1,16 @@
 {
-    "animal1": {
-            "id" : 1,
-            "name" : "Elefant",
-            "weight": 1000,
-            "sPower": "Lasereyes",
-            "eDate": "12.12.2022"
+    "animal0":{
+        "id":0,
+        "name":"Elefant",
+        "weight":1000,
+        "sPower":"Lasereyes",
+        "eDate":"10.04.2021"
     },
-    "animal2": {
-        "id" : 2,
-        "name" : "Tiger",
-        "weight": 80,
-        "sPower": "bite",
-        "eDate": "10.09.2022"
+    "animal1":{
+        "id":1,
+        "name":"Tiger",
+        "weight":80,
+        "sPower":"Flying",
+        "eDate":"15.06.1960"
     }
 }
-
-
-
-

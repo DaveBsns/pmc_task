@@ -2,18 +2,19 @@ const express = require('express');
 const http = require('http')
 const app = express();
 const fs = require("fs"); // node filesystem
-const PORT = 80;
+const { callbackify } = require('util');
+const PORT = 8080;
 
 app.use(express.json()) //Middleware -> parse data into json
 
 
 const animal = {
-    "animal3": {
-        "id" : 2,
-        "name" : "Tiger",
-        "weight": 80,
-        "sPower": "bite",
-        "eDate": "10.09.2022"
+    "animal": {
+        "id" : 0,
+        "name" : "string",
+        "weight": 0,
+        "sPower": "string",
+        "eDate": "string"
     }
 }
 
@@ -50,12 +51,26 @@ app.get('/', (req, res) => {
 
 // create new entry
 app.post('/addAnimal', (req, res) => {
-
    fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
-    data = JSON.parse( data );
-    data["animal3"] = animal["animal3"];
-    console.log( data );
-    res.end( JSON.stringify(data));
+    if(err){
+        console.log(err)
+    } else {
+        data = JSON.parse( data );
+        const data_len = Object.keys(data).length
+        animal["animal"]["id"] = data_len;
+        animal["animal"]["name"] = "";
+        animal["animal"]["weight"] = 0;
+        animal["animal"]["sPower"] = "";
+        animal["animal"]["eDate"] = "";
+        data["animal"+data_len] = animal["animal"];
+        //json_obj = JSON.stringify(data)
+        //console.log(json_obj)
+        fs.writeFile(__dirname + "/" + "animals.json", JSON.stringify(data), 'utf8', callbackify)
+    }
+    
+    res.end(JSON.stringify(data));
+    
+    
     });
 });
 
@@ -64,8 +79,8 @@ app.post('/updateAnimal', (req, res) => {
 
     fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, data) {
      data = JSON.parse( data );
-     data["animal3"] = animal["animal3"];
-     console.log( data );
+     data["animal3"] = animal["animal"];
+     console.log(Object.keys(data).length);
      res.end( JSON.stringify(data));
      });
  });
