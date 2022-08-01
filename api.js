@@ -49,7 +49,6 @@ app.post('/addAnimal', (req, res) => {
         } else {
             let json = JSON.parse( file );
             const data_len = json.data.length
-            console.log('test')
             animal["id"] = data_len;
             animal["name"] = req.body.name;
             animal["weight"] = req.body.weight;

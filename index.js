@@ -30,7 +30,7 @@ $(function () {
 
     $("#input-form").on("submit", function( event ) {
       const animal_new = $('#input-form').serializeArray();
-      //console.log(JSON.stringify(animal_new));
+      console.log(JSON.stringify(animal_new));
       $.ajax({
         type: 'POST',
         url: 'http://localhost:8080/addAnimal',

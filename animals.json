@@ -13,6 +13,13 @@
             "weight": "1000",
             "sPower": "Flying",
             "eDate": "24.12.2021"
+        },
+        {
+            "id": 2,
+            "name": "Dolphin",
+            "weight": "100",
+            "sPower": "Swimming",
+            "eDate": "01.01.1337"
         }
     ]
 }
