@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css">
     
@@ -24,6 +23,8 @@
           <th>Weight</th>
           <th>Super Power</th>
           <th>Extinction Date</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
     </table>
@@ -45,6 +46,33 @@
       </div>
       <button type="submit" id="add-animal-btn" class="btn-form btn btn-primary btn-lg btn-lg" >Add Animal</button>
   </form>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <form id="update-form">
+      <div class="form-col">
+        <div class="col-4" id="u-aName">
+          <input type="text" class="form-control" name="name" placeholder="Animal Name">
+        </div>
+        <div class="col-4" id="u-aWeight">
+          <input type="number" class="form-control" name="weight" placeholder="Animal Weight">
+        </div>
+        <div class="col-4" id="u-aPower">
+          <input type="text" class="form-control" name="sPower" placeholder="Animal Superpower">
+        </div>
+        <div class="col-4" id="u-aDate">
+          <input type="text" class="form-control" name="eDate" placeholder="Animal Extinction Date">
+        </div>
+      </div>
+      <button type="submit" id="u-add-animal-btn" class="btn-form btn btn-primary btn-lg btn-lg" >Update Animal</button>
+  </form>
+  </div>
+
+</div>
        
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script> 
 <script src="index.js"></script>

@@ -2,17 +2,17 @@
     "data": [
         {
             "id": 0,
-            "name": "Elefant",
-            "weight": 1000,
+            "name": "Tiger",
+            "weight": "80",
             "sPower": "Lasereyes",
-            "eDate": "10.04.2021"
+            "eDate": "12.12.2012"
         },
         {
             "id": 1,
-            "name": "Tiger",
-            "weight": 80,
+            "name": "Elephant",
+            "weight": "1000",
             "sPower": "Flying",
-            "eDate": "15.06.1960"
+            "eDate": "24.12.2021"
         }
     ]
 }
