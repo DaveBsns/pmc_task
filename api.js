@@ -91,26 +91,31 @@ app.post('/updateAnimal/:id', (req, res) => {
 app.delete('/deleteAnimal/:id', (req, res) => {
     let { id } = req.params
     fs.readFile( __dirname + "/" + "animals.json", 'utf8', function (err, file) {
-        let json = JSON.parse( file );
-        console.log(json)
-        json.data[id].delete
-        //delete json.data[id];
-        
-        console.log(json)
-        /*
-        for (i=0; i < json.data.length; i++){
-            //console.log('check')
-            if(json.data[i] === null){
-                
-            }
-            console.log(json);
-        
-
-        fs.writeFile(__dirname + "/" + "animals.json", JSON.stringify(json, null, 4), 'utf8', function(){
-            console.log('successfull')
-        })
-        */
-        res.end( JSON.stringify(json));
+        if(err){
+            console.log(err)
+        } else {
+            let json = JSON.parse( file );
+            console.log(json)
+            //json.data[id].delete
+            delete json.data[id];
+            
+            console.log(json)
+            /*
+            for (i=0; i < json.data.length; i++){
+                //console.log('check')
+                if(json.data[i] === null){
+                    
+                }
+                console.log(json);
+            */
+            /*
+            fs.writeFile(__dirname + "/" + "animals.json", JSON.stringify(json, null, 4), 'utf8', function(){
+                console.log('successfull')
+            })
+            
+            res.end( JSON.stringify(json));
+            */
+        }
         
      });
     

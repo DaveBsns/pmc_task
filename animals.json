@@ -17,9 +17,9 @@
         {
             "id": 2,
             "name": "Dolphin",
-            "weight": "100",
-            "sPower": "Swimming",
-            "eDate": "01.01.1337"
+            "weight": "70",
+            "sPower": "Super Strength",
+            "eDate": "01.01.2019"
         }
     ]
 }
